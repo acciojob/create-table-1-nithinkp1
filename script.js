@@ -16,7 +16,17 @@ function insert_Row() {
 
             table1.prepend(tr)
 	
-    
+    it('inserts a new row at top', () => {
+  cy.get('#insertBtn').click();   // whatever triggers insert_Row()
+
+  cy.get('#sampleTable tr')
+    .first()
+    .within(() => {
+      cy.get('td').eq(0).should('have.text', 'New Cell1');
+      cy.get('td').eq(1).should('have.text', 'New Cell2');
+    });
+});
+
   
   
 }
