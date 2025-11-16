@@ -1,22 +1,20 @@
-// let count = 0;
+let count = 0;
 function insert_Row() {
-	// count++;
-            const table1 = document.getElementById("sampleTable")
-            
-            const tr = document.createElement("tr")
+    count++;
 
-            const td1 = document.createElement("td")
-            td1.innerText = `New Cell1`
-            // count++;
+    // FIX: ensure we prepend inside <tbody>, not <table>
+    const table1 = document.querySelector("#sampleTable tbody");
 
-            const td2 = document.createElement("td")
-            td2.innerText = `New Cell2`
+    const tr = document.createElement("tr");
 
-            tr.append(td1,td2)
+    const td1 = document.createElement("td");
+    td1.innerText = `New Cell${count}`;
+    count++;
 
-            table1.prepend(tr)
-	
-    
-  
-  
+    const td2 = document.createElement("td");
+    td2.innerText = `New Cell${count}`;
+
+    tr.append(td1, td2);
+
+    table1.prepend(tr);
 }
